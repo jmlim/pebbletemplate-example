@@ -1,0 +1,30 @@
+{% extends 'base' %}
+{% set activeNav = 'home' %}
+
+{% block content %}
+
+fibonacci function test 1 ( fibonacci(20) ) : {{ fibonacci(20) }}
+<br/>
+fibonacci function test 2 ( fibonacci(length=10) ): {{ fibonacci(length=10) }}
+
+{% for post in posts %}
+
+<div class="row news-item">
+    <div class="col-md-2">
+        <a href="profile?id={{ post.userId }}" class="thumbnail">
+            <img src="/images/{{ post.userId }}.jpg">
+        </a>
+    </div>
+    <div class="col-md-6">
+        <h4><a href="profile?id={{ post.userId }}">{{ post.userName }}</a><small> {{ post.date | date("MMM-DD")
+            }}</small></h4>
+        <p> {{ post.details }} </p>
+        <p class="like-count"> {{ post.likes }} likes </p>
+        <div class="comments">
+            <input type="text" placeholder="Write a comment..."/>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+{% endblock content%}

@@ -1,0 +1,4 @@
+
+pebble:
+  suffix: .html
+  cache: false
