@@ -12,7 +12,7 @@ public class IndexController {
 
     private final PostService postService;
 
-    @GetMapping(value = {"", "/"})
+    @GetMapping(value = {"", "/", "/home"})
     public String home(Model model) {
         model.addAttribute("posts", this.postService.getPosts());
         return "home";
